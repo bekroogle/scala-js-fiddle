@@ -15,6 +15,17 @@ object Static{
   def page(arg: String, srcFiles: Seq[String], source: String = "", compiled: String = "", analytics: Boolean = true) =
     "<!DOCTYPE html>" + html(
       head(
+
+        // Link to the generated PEG grammar which contains the parser object.
+        script(type:="text/javascript", src:="/pre-parse/hello-world-parser.js"),
+        script(
+          """
+            var checkit = function() {
+              var inputString = ace.edit("editor").getValue();
+              parser.parse(inputString);
+            } 
+          """),
+
         meta(charset:="utf-8"),
         Tags2.title("Scala-Js-Fiddle"),
 
