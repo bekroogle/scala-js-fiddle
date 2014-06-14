@@ -5,7 +5,8 @@
     bottom: 20%;
     left: 0;
     right: 50%;
-    background-color: rgb(20, 20, 20);
+/*  Commented out because it breaks ACE's themes!
+ *  background-color: rgb(20, 20, 20);  */
     box-sizing: border-box;
     padding-left: 3px;
 }
