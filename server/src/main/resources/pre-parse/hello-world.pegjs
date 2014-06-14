@@ -52,11 +52,11 @@ close_brace
 
 /* Whitespace: one or more spaces|tabs */
 __ "whitespace"
-  = [ \t]+
+  = [ \t]*
 
 /* Newline: zero or more */
 nl "newline"
-  = [\n]*
+  = (__[\n]__)*
 
 string
   = ['] [^']* [']
