@@ -17,14 +17,14 @@ object Static{
       head(
 
         // Link to the generated PEG grammar which contains the parser object.
-        script(type:="text/javascript", src:="/pre-parse/hello-world-parser.js"),
-        script(
+        script(src:="/pre-parse/hello-world-parser.js"),
+        script(raw(
           """
             var checkit = function() {
               var inputString = ace.edit("editor").getValue();
               parser.parse(inputString);
             } 
-          """),
+          """)),
 
         meta(charset:="utf-8"),
         Tags2.title("Scala-Js-Fiddle"),
