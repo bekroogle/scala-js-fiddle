@@ -18,10 +18,14 @@
 /* Starting rule */
 start
   = object_block
+  / error
+
+error
+  = .* { return "invalid";}
 
 /* Top level object block */
 object_block
-  = js_export obj_decl main_def_block
+  = js_export obj_decl main_def_block { return "valid";}
 
 /* object declaration* * * * * * * * *
  *   example:                        *
