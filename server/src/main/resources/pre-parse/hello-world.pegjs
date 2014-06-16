@@ -17,15 +17,16 @@
 
 /* Starting rule */
 start
-  = object_block
-  / error
+  = error { return "invalid"; }
+  / object_block { return "valid";}
+  
 
 error
-  = .* { return "invalid";}
-
+  = !object_block .*
+  
 /* Top level object block */
 object_block
-  = js_export obj_decl main_def_block { return "valid";}
+  = js_export obj_decl main_def_block close_brace { return "valid";}
 
 /* object declaration* * * * * * * * *
  *   example:                        *
@@ -42,7 +43,7 @@ js_export
 
 /* main function definition block */
 main_def_block "definition of main"
-  = js_export def_main print_stmt close_brace close_brace
+  = js_export def_main print_stmt close_brace
 
 /* definiton of main function */
 def_main
@@ -62,9 +63,17 @@ __ "whitespace"
 nl "newline"
   = (__[\n]__)*
 
+/* String literal: any characters enlosed by single or double quotese
+    example:
+      "Hello, world!"
+      'Goodbye, cruel world!' */
 string
   = ['] [^']* [']
   / ["] [^"]* ["]
 
+/* Identifier: Any letter followed by a string of letters and/or numbers
+    example: 
+      myVariable
+      myVariable2 */
 id
   = [A-Za-z][A-Za-z0-9]*

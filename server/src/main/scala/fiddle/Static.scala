@@ -77,7 +77,8 @@ object Static{
               )
             )
           )
-        )
+        ),
+        img(id:="valid-indicator", src:="green-light.png")
       ),
       div(
         id:="compiled",

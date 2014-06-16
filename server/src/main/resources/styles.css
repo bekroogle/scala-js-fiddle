@@ -65,3 +65,9 @@ html, body, #spinner-holder{
 .ace-line{
     white-space: nowrap;
 }
+
+#valid-indicator {
+    position: absolute;
+    top: 2em;
+    left:2em;
+}
