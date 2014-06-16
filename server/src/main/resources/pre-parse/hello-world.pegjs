@@ -43,7 +43,7 @@ js_export
 
 /* main function definition block */
 main_def_block "definition of main"
-  = js_export def_main print_stmt close_brace
+  = js_export def_main print_stmt+ close_brace
 
 /* definiton of main function */
 def_main

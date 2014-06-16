@@ -478,7 +478,16 @@ parser = (function() {
       if (s1 !== peg$FAILED) {
         s2 = peg$parsedef_main();
         if (s2 !== peg$FAILED) {
-          s3 = peg$parseprint_stmt();
+          s3 = [];
+          s4 = peg$parseprint_stmt();
+          if (s4 !== peg$FAILED) {
+            while (s4 !== peg$FAILED) {
+              s3.push(s4);
+              s4 = peg$parseprint_stmt();
+            }
+          } else {
+            s3 = peg$c2;
+          }
           if (s3 !== peg$FAILED) {
             s4 = peg$parseclose_brace();
             if (s4 !== peg$FAILED) {
@@ -1023,6 +1032,7 @@ parser = (function() {
     parse:       parse
   };
 })();
+
 
 
 var parseOnChange = function() {
