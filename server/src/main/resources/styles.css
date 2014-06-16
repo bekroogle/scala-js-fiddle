@@ -67,7 +67,7 @@ html, body, #spinner-holder{
 }
 
 #valid-indicator {
-    position: absolute;
-    top: 2em;
-    left:2em;
+    position: relative;
+    top: 1em;
+    left: 45%;
 }

@@ -1027,6 +1027,11 @@ parser = (function() {
 
 var parseOnChange = function() {
   ace.edit("editor").on("change", function(e) { 
-    console.log(parser.parse(ace.edit("editor").getValue())); 
+	var result = parser.parse(ace.edit("editor").getValue());
+    if(result == 'valid') {
+		document.getElementById('valid-indicator').src = 'green-light.png';
+	} else {
+		document.getElementById('valid-indicator').src = 'red-light.png';
+	}
   });
-}
+};
