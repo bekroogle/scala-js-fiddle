@@ -48,7 +48,8 @@ object Static{
         )) else ()
 
       ),
-      body(
+      body(onload:="parseOnChange()")(
+
         div(id:="source", display:="none")(source),
         pre(id:="editor"),
         pre(id:="logspam"),
